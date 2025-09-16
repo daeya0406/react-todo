@@ -1,6 +1,7 @@
 import ColorBox from "./ColorBox";
 import "./App.css";
 import { useState } from "react";
+import ResetButton from "./ResetButton";
 
 // 상태, input, onchange - 상태 조작, props, colorbox
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <div>
         <input value={color} onChange={(e) => setColor(e.target.value)} />
       </div>
+      <ResetButton onReset={() => setColor("")} />
       <ColorBox color={color} />
     </div>
   );
