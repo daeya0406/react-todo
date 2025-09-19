@@ -1,9 +1,13 @@
-export default function TodoItem() {
+export default function TodoItem({ text, done, onToggle, onDelete }) {
   return (
     <li>
-      예시
-      <button type="button">삭제</button>
-      <button type="button">수정</button>
+      <label>
+        <input type="checkbox" checked={done} onChange={onToggle} />
+        <span style={{ opacity: done ? 0.5 : 1 }}>{text}</span>
+      </label>
+      <button type="button" onClick={onDelete}>
+        삭제
+      </button>
     </li>
   );
 }
