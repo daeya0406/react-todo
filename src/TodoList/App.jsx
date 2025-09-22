@@ -1,12 +1,13 @@
 import TodoInput from "./TodoInput";
 import TodoItem from "./TodoItem";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
+  const idRef = useRef(0);
 
   const addTodo = (text) => {
-    setTodos((prev) => [...prev, { id: Date.now(), text, done: false }]);
+    setTodos((prev) => [...prev, { id: idRef.current++, text, done: false }]);
   };
 
   const toggleTodo = (id) => {
